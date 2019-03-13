@@ -16,3 +16,21 @@ pip install -r requirements.txt
 ``` shell
 .venv/bin/python3.6 -m defrecord-ml
 ```
+
+# Projects
+
+https://github.com/jwalsh/aws-ml-bootcamp
+
+## titanic-passenger_survived
+
+## car_price
+
+## iris_class
+
+## banking_y (targeting)
+
+## building_heating-load
+
+https://docs.microsoft.com/en-us/learn/modules/create-an-experiment-in-ml-studio/2-create-an-experiment-in-ml-studio
+
+## wine-quality
