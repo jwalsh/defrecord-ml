@@ -8,7 +8,15 @@ from threading import Thread
 from kafka import KafkaProducer, KafkaConsumer
 
 def main(args):
-    project_names = ['banking_target', 'iris', 'titanic', 'boston', 'banking_target']
+
+    project_names = [
+        'banking-customer_target',
+        'building_heating-load'
+        'car_price',
+        'iris_class',
+        'titanic-passenger_survived',
+        'wine_quality',
+    ]
     for project_name in project_names:
         try:
             _setup_kafka_consumer(project_name)
@@ -16,7 +24,7 @@ def main(args):
             pass
 
 def _setup_kafka_consumer(project_name):
-    print('Running Consumer {}..'.format(project_name))
+    print('{}'.format(project_name))
     parsed_records = []
     topic_name = 'raw_{}_input'.format(project_name)
     parsed_topic_name = 'parsed_{}_input'.format(project_name)
@@ -32,5 +40,4 @@ def _setup_kafka_consumer(project_name):
     sleep(5)
 
 if __name__ == '__main__':
-    print('Running Consumer..')
     main(sys.argv[1:])

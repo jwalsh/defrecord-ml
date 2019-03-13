@@ -1,48 +1,44 @@
-# defrecord-ml
+* defrecord-ml
 
 This illustrates the machine learning pipeline process used when
 supporting multiple generators looking for predictions.
 
-## Setup
+** Setup
 
 The following should work even with a default Python 2 setup:
 
-``` shell
+#+BEGIN_SRC sh
 pip install --upgrade virtualenv
 virtualenv -p python3.6 --no-site-packages --distribute .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-```
+#+END_SRC
 
-## Testing
+** Testing
 
-``` shell
+#+BEGIN_SRC sh
 .venv/bin/python3.6 -m defrecord-ml
-```
+#+END_SRC
 
-# Projects
+#+RESULTS:
+| banking-customer_target        |
+| building_heating-loadcar_price |
+| iris_class                     |
+| titanic-passenger_survived     |
+| wine_quality                   |
+
+* Projects
 
 For the scaffolding associated with some of the projects it's likely
 easiest to just use the files stored in
 
 https://github.com/jwalsh/aws-ml-bootcamp
 
-and upload using the `./s3-upload.sh` script.
+and upload using the `./s3-upload.sh` script or reference the input in
+the sections noted below.
 
-```shell
-aws machinelearning describe-ml-models | jq '.Results[] | .Name, .Status'
-```
 
-For each of the following confirm that the prediction end-point is
-available for each of the following:
-
-- "ML model: Iris_class.csv"
-- "ML model: Building_heating-load.csv"
-- "ML model: Wine_quality.csv"
-- "ML model: Car_price.csv"
-- "ML model: Banking-customer_target.csv"
-
-## banking-customers/banking-customer_target.csv
+** banking-customers/banking-customer_target.csv
 
 http://archive.ics.uci.edu/ml/datasets/Bank+Marketing
 
@@ -52,7 +48,7 @@ if the client will subscribe a term deposit (variable y)."
 
 s3://aws-ml-bootcamp-jwalsh/banking-customers/banking-customer_target.csv
 
-## buildings/building_heating-load.csv
+** buildings/building_heating-load.csv
 
 https://docs.microsoft.com/en-us/learn/modules/create-an-experiment-in-ml-studio/2-create-an-experiment-in-ml-studio
 
@@ -60,13 +56,13 @@ https://docs.microsoft.com/en-us/learn/modules/create-an-experiment-in-ml-studio
 
 s3://aws-ml-bootcamp-jwalsh/buildings/building_heating-load.csv
 
-## cars/car_price.csv
+** cars/car_price.csv
 
 http://archive.ics.uci.edu/ml/datasets/Automobile?ref=datanews.io
 
 s3://aws-ml-bootcamp-jwalsh/cars/car_price.csv
 
-## irises/iris_class.csv
+** irises/iris_class.csv
 
 https://scikit-learn.org/stable/auto_examples/datasets/plot_iris_dataset.html
 
@@ -74,7 +70,7 @@ https://scikit-learn.org/stable/auto_examples/datasets/plot_iris_dataset.html
 
 s3://aws-ml-bootcamp-jwalsh/irises/iris_class.csv
 
-## titanic-passengers/titanic-passenger_survived.csv
+** titanic-passengers/titanic-passenger_survived.csv
 
 https://www.kaggle.com/c/titanic
 
@@ -82,10 +78,28 @@ https://www.kaggle.com/c/titanic
 
 s3://aws-ml-bootcamp-jwalsh/titanic-passengers/titanic-passenger_survived.csv
 
-## wines/wine_quality.csv
+** wines/wine_quality.csv
 
 https://www.sciencedirect.com/science/article/pii/S0167923609001377
 
 "Modeling wine preferences by data mining from physicochemical properties."
 
 s3://aws-ml-bootcamp-jwalsh/wines/wine_quality.csv
+
+* Models
+
+For each of the following confirm that the prediction end-point is
+available for each of the following:
+
+#+BEGIN_SRC sh
+aws machinelearning describe-ml-models | jq '.Results[] | .Name'
+#+END_SRC
+
+#+RESULTS:
+
+- [ ] "ML model: Iris_class.csv"
+- [ ] "ML model: Building_heating-load.csv"
+- [ ] "ML model: Banking.csv"
+- [ ] "ML model: Wine_quality.csv"
+- [ ] "ML model: Car_price.csv"
+- [ ] "ML model: Banking-customer_target.csv"
