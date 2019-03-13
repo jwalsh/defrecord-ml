@@ -1,2 +1,15 @@
 #!/bin/sh
+
+python='python3.6'
+venv='.venv'
+env_name='NONE'
+
+rm -rf ./build
+rm -rf ./dist
+rm -rf ./*.egg-info
+rm -rf ./${venv}
+${python} -m venv --without-pip ${venv}"
+${venv}/bin/python setup.py bdist_wheel"
+
+
 python3 setup.py sdist bdist_wheel
