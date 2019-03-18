@@ -8,7 +8,6 @@ from threading import Thread
 from kafka import KafkaProducer, KafkaConsumer
 
 def main(args):
-
     project_names = [
         'banking-customer_target',
         'building_heating-load'
@@ -40,4 +39,7 @@ def _setup_kafka_consumer(project_name):
     sleep(5)
 
 if __name__ == '__main__':
-    main(sys.argv[1:])
+    # signal.signal(signal.SIGTERM)
+    status = main(sys.argv[1:])
+    print('Exit status: {}'.format(status))
+    sys.exit(status)
