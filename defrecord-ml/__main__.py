@@ -7,6 +7,9 @@ import json
 from threading import Thread
 from kafka import KafkaProducer, KafkaConsumer
 
+# import defrecord_ml_custom_transformers
+# import preprocessors
+
 def main(args):
     project_names = [
         'banking-customer_target',
