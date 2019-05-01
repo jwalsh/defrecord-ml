@@ -1,0 +1,12 @@
+* Exercise
+
+Create a pipeline using ColumnTransformaer, OneHotEncoder, Scaling, and polynomial features and a linear classifier.
+
+Search over the best options for the polynomial features together with the ergularization of a linear model.
+
+* Setup
+
+#+BEGIN_SRC sh
+wget https://datahub.io/machine-learning/adult/r/1.html
+
+#+END_SRC
